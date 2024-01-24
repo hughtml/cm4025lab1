@@ -14,24 +14,32 @@
 </div>
 
 <div class="container">
-  <form id="budget" action="javascript:calculatePrice()">
-    <div class="row">
-      <div class="col-sm-12 col-md-6">
-        <label for="salary">What annual salary seems suitable for you?</label>
-        <input class="form-control" type="text" id="salary" name="salary"/><br><br>
-      </div>
-      <div class="col-sm-12 col-md-6">
-        <label for="days">How many days do you think it will take you to make the website?</label>
-      <input class="form-control" type="text" id="days" name="days"/><br><br>
-      </div>
-    </div>
-    <div class="row">
-      <input class="btn btn-primary" type="submit" value="Calculate your price!"><br><br>
-      <label class="form-label" id="finalPrice"> ??? </label>
-    </div>
-  </form>
-</div>
+  <div class="row">
 
+    <div class="col-sm-12 col-md-6">
+      <form id="budget" action="javascript:calculatePrice()">
+        <div class="row">
+          <div class="col-sm-12 col-md-6">
+            <label for="salary">What annual salary seems suitable for you?</label>
+            <input class="form-control" type="text" id="salary" name="salary"/><br><br>
+          </div>
+          <div class="col-sm-12 col-md-6">
+            <label for="days">How many days do you think it will take you to make the website?</label>
+          <input class="form-control" type="text" id="days" name="days"/><br><br>
+          </div>
+        </div>
+        <div class="row">
+          <input class="btn btn-primary" type="submit" value="Calculate your price!"><br><br>
+          <label class="form-label" id="finalPrice"> ??? </label>
+        </div>
+      </form>
+    </div>
+
+    <div class="col-sm-12 col-md-6">
+      <img src="inspirobotimage.jpeg" alt="An image from Inspirobot.">
+    </div>
+  </div>
+</div>
 
 <script>
   function calculatePrice() {
