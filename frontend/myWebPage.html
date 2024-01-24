@@ -43,8 +43,6 @@
 </div>
 <script>
   $(function() {
-    $("#submit").click(handleClick);
-
     const handleClick = () => {
         const salary = $("#salary").val() || 32800;
         const days = $("#days").val();
@@ -58,7 +56,8 @@
             }
         });
     }
-    
+
+    $("#submit").click(handleClick);
 });
 </script>
 </body>
