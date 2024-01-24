@@ -6,7 +6,7 @@ const calculatePrice = () => {
     console.log(days);
     let finalPrice = 0;
     dailyRate = salary / 365;
-    finalPrice = dailyRate * days;
+    finalPrice = priceRounder(dailyRate * days);
     document.getElementById("finalPrice").innerHTML = finalPrice;
 }
 
