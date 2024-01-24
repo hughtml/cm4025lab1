@@ -42,15 +42,15 @@
 </div>
 
 <script>
-  function calculatePrice() {
+  const calculatePrice = () => {
     let salary = document.getElementById("salary").value;
-    var d = document.getElementById("days").value;
+    var days = document.getElementById("days").value;
     console.log("Calculating price")
-    console.log(s)
-    console.log(d)
+    console.log(salary)
+    console.log(days)
     let finalPrice = 0;
-    dailyRate = s/365;
-    finalPrice = dailyRate * d;
+    dailyRate = salary / 365;
+    finalPrice = dailyRate * days;
     document.getElementById("finalPrice").innerHTML = finalPrice;
   }
   </script>
