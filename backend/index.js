@@ -6,4 +6,8 @@ const options = {
 }
 app.use(express.static("../frontend", options));
 
+app.use((req, res, next) => {
+    res.status(404).send("This page doesn't exist!");
+});
+
 app.listen(8080);
