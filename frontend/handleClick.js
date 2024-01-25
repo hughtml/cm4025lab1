@@ -1,6 +1,4 @@
 $(function() {
-    $("#submit").click(handleClick);
-
     const handleClick = () => {
         const salary = $("#salary").val();
         const days = $("#days").val();
@@ -14,5 +12,6 @@ $(function() {
             }
         });
     }
-    
+
+    $("#submit").click(handleClick);
 });
