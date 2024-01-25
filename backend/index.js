@@ -5,9 +5,9 @@ const options = {
     index: "myWebPage.html"
 }
 
-app.get('/api/getprice', function(req, res) {
-    const salary = req.params.salary;
-    const days = req.params.days;
+app.get("/getprice", function(req, res) {
+    const salary = req.query.salary;
+    const days = req.query.days;
 
     console.log("Calculating price");
     console.log(salary);

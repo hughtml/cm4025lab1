@@ -30,7 +30,7 @@
           </div>
         </div>
         <div class="row">
-          <input class="btn btn-primary" type="submit" value="Calculate your price!"><br><br>
+          <input class="btn btn-primary" id="submit" type="button" value="Calculate your price!"><br><br>
           <label class="form-label" id="finalPrice"> ??? </label>
         </div>
       </form>
@@ -47,14 +47,12 @@
     const salary = $("#salary").val();
     const days = $("#days").val();
     
-    var url = "/api/getprice?" + "salary=" + salary + "&" + "days=" + days;
+    var url = "/getprice?" + "salary=" + salary + "&" + "days=" + days;
     console.log(url);
-    /*
     $.ajax({url: url, success: function (finalPrice) {
       $("#finalPrice").html(finalPrice);
     }});
     return false;
-    */
   }
   
 </script>
