@@ -5,11 +5,7 @@ const options = {
     index: "myWebPage.html"
 }
 
-const priceRounder = (finalPrice) => {
-    return Math.round(finalPrice / 100) * 100;
-}
-
-app.get("/getprice", (req, res) => {
+app.get('/api/getprice', function(req, res) {
     const salary = req.params.salary;
     const days = req.params.days;
 
@@ -18,8 +14,9 @@ app.get("/getprice", (req, res) => {
     console.log(days);
     const dailyRate = salary / 365;
 
-    const finalPrice = priceRounder(dailyRate * days);
-    res.send(finalPrice);
+    let finalPrice = dailyRate * days;
+    finalPrice = Math.round(finalPrice / 100) * 100;
+    res.send(""+finalPrice);
 });
 
 app.use(express.static("../frontend", options));
