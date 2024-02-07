@@ -12,6 +12,22 @@ $(function() {
             }
         });
     }
+    
+    const saveClick = () => {
+        const salary = $("#salary").val();
+        const days = $("#days").val();
+        const quoteName = $("#quoteName");
+        const url = "/saveQuote?" + "salary=" + salary + "&" + "days=" + days + "&" + "quoteName=" + quoteName;
+        console.log(url);
+
+        $.ajax({
+            url: url,
+            success: function (saveMessage) {
+                document.getElementById("saveMessage").innerHTML = saveMessage;
+            }
+        });
+    }
 
     $("#submit").click(handleClick);
+    $("#save").click(saveClick);
 });
