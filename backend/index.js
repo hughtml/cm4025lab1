@@ -36,7 +36,8 @@ app.get("/savequote", function(req, res) {
     let finalPrice = dailyRate * days;
     finalPrice = priceRounder(finalPrice);
 
-    res.send(quoteName + " saved: £" + finalPrice + " for £" + salary + " for " + days + " days");
+    console.log(quoteName + " saved: £" + finalPrice + " for £" + salary + " for " + days + " days");
+    res.send("Quote saved successfully.");
 });
 
 app.use(express.static("../frontend", options));
