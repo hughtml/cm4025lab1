@@ -17,7 +17,7 @@ $(function() {
         const salary = $("#salary").val();
         const days = $("#days").val();
         const quoteName = $("#quoteName");
-        const url = "/saveQuote?" + "salary=" + salary + "&" + "days=" + days + "&" + "quoteName=" + quoteName;
+        const url = "/savequote?" + "salary=" + salary + "&" + "days=" + days + "&" + "quotename=" + quoteName;
         console.log(url);
 
         $.ajax({
