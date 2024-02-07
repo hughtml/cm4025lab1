@@ -1,4 +1,6 @@
 const express = require("express");
+const { MongoClient } = require("mongodb");
+const uri = "mongodb://127.0.0.1:27017";
 const app = express();
 
 const priceRounder = (finalPrice) => {
@@ -37,6 +39,45 @@ app.get("/savequote", function(req, res) {
     finalPrice = priceRounder(finalPrice);
 
     console.log(quoteName + " saved: £" + finalPrice + " for £" + salary + " for " + days + " days");
+
+    const client = new MongoClient(uri);
+    async function run() {
+        try {
+            //Await a client connection to the server
+            await client.connect();
+            //Establish and verfiy a connection
+            await client.db("admin").command({ping: 1});
+            console.log("Success! Connected to the server.");
+            console.log("Starting database procedures...");
+            
+            //----- Database queries -----
+
+            const dbo = client.db("mydb");
+            const paramsObj = {
+                quoteName: quoteName,
+                salary: salary,
+                days: days,
+                finalPrice: finalPrice
+            };
+
+            await dbo.collection("quotes").insertOne(paramsObj, (err, res) => {
+                if (err) {
+                    console.log(err);
+                    throw err;
+                }
+                console.log("Quote inserted.");
+            });
+
+            //----- Database queries -----
+
+            console.log("...finishing database procedures.");
+        } finally {
+            //Client must close no matter finish or error
+            await client.close();
+        }
+    }
+
+    run().catch(console.dir);
     res.send("Quote saved successfully.");
 });
 
