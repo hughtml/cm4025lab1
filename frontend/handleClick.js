@@ -16,7 +16,7 @@ $(function() {
     const saveClick = () => {
         const salary = $("#salary").val();
         const days = $("#days").val();
-        const quoteName = $("#quoteName");
+        const quoteName = $("#quoteName").val();
         const url = "/savequote?" + "salary=" + salary + "&" + "days=" + days + "&" + "quotename=" + quoteName;
         console.log(url);
 

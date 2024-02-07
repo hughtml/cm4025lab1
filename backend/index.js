@@ -23,6 +23,22 @@ app.get("/getprice", function(req, res) {
     res.send(""+finalPrice);
 });
 
+app.get("/savequote", function(req, res) {
+    const salary = req.query.salary;
+    const days = req.query.days;
+    const quoteName = req.query.quotename;
+
+    console.log("Calculating price");
+    console.log(salary);
+    console.log(days);
+    const dailyRate = salary / 365;
+
+    let finalPrice = dailyRate * days;
+    finalPrice = priceRounder(finalPrice);
+
+    res.send(quoteName + " saved: £" + finalPrice + " for £" + salary + " for " + days + " days");
+});
+
 app.use(express.static("../frontend", options));
 
 app.use((req, res, next) => {
