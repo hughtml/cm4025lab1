@@ -1,6 +1,6 @@
 const express = require("express");
 const { MongoClient } = require("mongodb");
-const uri = "mongodb://127.0.0.1:27017";
+const uri = "mongodb://testUser:password@127.0.0.1:27017/mydb";
 const app = express();
 
 const priceRounder = (finalPrice) => {
